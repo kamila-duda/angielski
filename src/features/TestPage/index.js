@@ -8,6 +8,8 @@ import {
   StyledTitle,
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import wrong from "./../files/sounds/tryagain.mp3";
+import good from "./../files/sounds/goodanswer.ogg"
 
 const TestPage = () => {
   const words = useSelector(selectTestCategories);
@@ -29,11 +31,15 @@ const TestPage = () => {
 
   const checkAnswer = (answer) => {
     if (answer === testWord) {
-      setNewWord();
+        const sounds = new Audio(good);
+        sounds.play();
+      setTimeout(()=>setNewWord(), 2000);
     } else {
-      alert("źle");
+        const sounds = new Audio(wrong);
+        sounds.play();
     }
   };
+  
   return (
     <>
       <StyledTitle>

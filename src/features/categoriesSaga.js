@@ -1,30 +1,24 @@
 import {
-    takeLatest,
     call,
     put,
     takeEvery,
-    select,
     delay,
   } from "redux-saga/effects";
-  
+import store from "./../store";
+import { setTestWord, startTest } from "./categoriesSlice";
   
   function* setNewWordHandler() {
     try {
-      yield delay(1000);
-      const exampleTasks = yield call(getExampleTasks);
-      yield put(fetchExampleTasksSuccess(exampleTasks));
+      yield delay(2000);
+      const words = store.getState().categories.testCategories.words;
+      const index = Math.floor(Math.random() * words.length);
+      yield put(setTestWord(index));
     } catch (error) {
       yield call(alert, "Coś poszło nie tak");
-      yield put(fetchExampleTasksError());
     }
   }
-  function* saveTasksInLocalStorageHandler() {
-    const tasks = yield select(selectTasks);
-    yield call(saveTasksInLocalStorage, tasks);
-  }
   
-  export function* tasksSaga() {
-    yield takeLatest(fetchExampleTasks.type, fetchExampleTasksHandler);
-    yield takeEvery("*", saveTasksInLocalStorageHandler);
+  export function* categoriesSaga() {
+    yield takeEvery(startTest.type, setNewWordHandler);
   }
   

@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toTest } from "../../routes";
-import { addToTest, selectAllChecked, selectStartFlag, setAllChecked, toggleAllChecked, toggleCheck } from "../categoriesSlice";
-import { words } from "../words";
+import {
+  addToTest,
+  selectAllChecked,
+  selectStartFlag,
+  selectStateCategories,
+  toggleAllChecked,
+  toggleCheck
+} from "../categoriesSlice";
 import {
   StyledTile,
   StyledContainer,
@@ -13,7 +19,7 @@ import {
 } from "./styled";
 
 const Categories = () => {
-  const [checked, setChecked] = useState(false);
+  const words = useSelector(selectStateCategories);
   const dispatch = useDispatch();
   const allChecked = useSelector(selectAllChecked);
   const startFlag = useSelector(selectStartFlag);
@@ -22,9 +28,9 @@ const Categories = () => {
       <StyledParagraph>Wybierz kategorię słówek:</StyledParagraph>
       <StyledContainer>
         <StyledButton onClick={() => dispatch(toggleAllChecked())}>
-          {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}{" "}
+          {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}
         </StyledButton>
-        <StyledLink to={toTest()} >
+        <StyledLink to={toTest()}>
           <StyledButton disabled={startFlag}>Start</StyledButton>
         </StyledLink>
       </StyledContainer>
@@ -34,7 +40,7 @@ const Categories = () => {
             key={category.id}
             image={category.image}
             onClick={() => {
-              dispatch(addToTest(category.words));
+              dispatch(addToTest(category));
               dispatch(toggleCheck(category.id));
             }}
             checked={allChecked || category.border}
