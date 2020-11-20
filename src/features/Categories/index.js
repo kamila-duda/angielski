@@ -6,6 +6,7 @@ import {
   selectAllChecked,
   selectStartFlag,
   selectStateCategories,
+  startTest,
   toggleAllChecked,
   toggleCheck
 } from "../categoriesSlice";
@@ -27,11 +28,11 @@ const Categories = () => {
     <>
       <StyledParagraph>Wybierz kategorię słówek:</StyledParagraph>
       <StyledContainer>
-        <StyledButton onClick={() => dispatch(toggleAllChecked())}>
+        <StyledButton onClick={() => dispatch(toggleAllChecked(words))}>
           {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}
         </StyledButton>
         <StyledLink to={toTest()}>
-          <StyledButton disabled={startFlag}>Start</StyledButton>
+          <StyledButton disabled={startFlag} onClick={()=>dispatch(startTest(words))}>Start</StyledButton>
         </StyledLink>
       </StyledContainer>
       <StyledContainer>

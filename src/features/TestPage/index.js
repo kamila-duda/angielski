@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectTestCategories } from "../categoriesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  checkAnswer,
+  selectTestCategories,
+  selectTestWord,
+  setTestWord,
+  drawIndex,
+  selectSoundOn,
+  selectIsError,
+} from "../categoriesSlice";
 import {
   StyledContainer,
   StyledFontAwesomeIcon,
@@ -9,42 +17,45 @@ import {
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import wrong from "./../files/sounds/tryagain.mp3";
-import good from "./../files/sounds/goodanswer.ogg"
+import good from "./../files/sounds/goodanswer.ogg";
+import ErrorPage from "../../common/ErrorPage";
 
 const TestPage = () => {
+  const dispatch = useDispatch();
+  const isError = useSelector(selectIsError);
   const words = useSelector(selectTestCategories);
-  const [testWord, setTestWord] = useState();
+  const testWord = useSelector(selectTestWord);
+  const testWordSound = useSelector(selectSoundOn);
 
   useEffect(() => {
-    const index = Math.floor(Math.random() * words.length);
-    setTestWord(words[index].title);
-    const sounds = new Audio(words[index].sounds);
-    sounds.play();
-  }, [words]);
-
-  const setNewWord = () => {
-    const index = Math.floor(Math.random() * words.length);
-    setTestWord(words[index].title);
-    const sounds = new Audio(words[index].sounds);
-    sounds.play();
-  };
+    const sound = new Audio(testWordSound);
+    sound.play();
+  }, [testWord]);
 
   const checkAnswer = (answer) => {
     if (answer === testWord) {
-        const sounds = new Audio(good);
-        sounds.play();
-      setTimeout(()=>setNewWord(), 2000);
+      const sounds = new Audio(good);
+      sounds.play();
+      dispatch(drawIndex());
     } else {
-        const sounds = new Audio(wrong);
-        sounds.play();
+      const sounds = new Audio(wrong);
+      sounds.play();
     }
   };
-  
+  const soundOn = () => {
+    const sound = new Audio(testWordSound);
+    sound.play();
+  }
+if(isError){
+    return (
+        <ErrorPage/>
+    )
+};
   return (
     <>
       <StyledTitle>
         {testWord}
-        <StyledFontAwesomeIcon icon={faVolumeUp} />
+        <StyledFontAwesomeIcon onClick={()=>soundOn()} icon={faVolumeUp} />
       </StyledTitle>
       <StyledContainer>
         {words.map((word) => (

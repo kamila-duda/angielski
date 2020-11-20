@@ -25,6 +25,7 @@ text-align: center;
 `;
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 color: ${({theme})=>theme.color.middle};
+cursor: pointer;
 margin-left: 5px;
 `;
 export const StyledTile = styled.div`
