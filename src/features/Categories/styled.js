@@ -35,6 +35,7 @@ ${({ checked }) =>
 }
 &:disabled{
   background-color: gray;
+  color: ${({theme})=>theme.color.lighter};
 }
 `;
 export const StyledTitle = styled.h2`

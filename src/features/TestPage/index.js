@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  checkAnswer,
   selectTestCategories,
   selectTestWord,
-  setTestWord,
   drawIndex,
   selectSoundOn,
   selectIsError,
+  resetTest,
 } from "../categoriesSlice";
 import {
   StyledContainer,
   StyledFontAwesomeIcon,
   StyledTile,
   StyledTitle,
+  StyledButton,
+  StyledLink,
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import wrong from "./../files/sounds/tryagain.mp3";
 import good from "./../files/sounds/goodanswer.ogg";
 import ErrorPage from "../../common/ErrorPage";
+import { toCategories } from "../../routes";
 
 const TestPage = () => {
   const dispatch = useDispatch();
@@ -28,8 +30,7 @@ const TestPage = () => {
   const testWordSound = useSelector(selectSoundOn);
 
   useEffect(() => {
-    const sound = new Audio(testWordSound);
-    sound.play();
+    soundOn();
   }, [testWord]);
 
   const checkAnswer = (answer) => {
@@ -45,17 +46,15 @@ const TestPage = () => {
   const soundOn = () => {
     const sound = new Audio(testWordSound);
     sound.play();
+  };
+  if (isError) {
+    return <ErrorPage />;
   }
-if(isError){
-    return (
-        <ErrorPage/>
-    )
-};
   return (
     <>
       <StyledTitle>
         {testWord}
-        <StyledFontAwesomeIcon onClick={()=>soundOn()} icon={faVolumeUp} />
+        <StyledFontAwesomeIcon onClick={() => soundOn()} icon={faVolumeUp} />
       </StyledTitle>
       <StyledContainer>
         {words.map((word) => (
@@ -67,6 +66,11 @@ if(isError){
             }}
           />
         ))}
+      </StyledContainer>
+      <StyledContainer>
+      <StyledLink to={toCategories()}>
+          <StyledButton onClick={()=>dispatch(resetTest())}>Koniec</StyledButton>
+        </StyledLink>
       </StyledContainer>
     </>
   );

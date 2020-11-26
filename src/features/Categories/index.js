@@ -25,7 +25,7 @@ const Categories = () => {
   const allChecked = useSelector(selectAllChecked);
   const startFlag = useSelector(selectStartFlag);
   return (
-    <>
+    <><StyledTitle>Test z języka angielskiego dla klasy I</StyledTitle>
       <StyledParagraph>Wybierz kategorię słówek:</StyledParagraph>
       <StyledContainer>
         <StyledButton onClick={() => dispatch(toggleAllChecked(words))}>
