@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Categories from './features/Categories';
+import Footer from './features/Footer';
 import TestPage from './features/TestPage';
 import { toCategories, toTest } from './routes';
 
@@ -18,6 +19,7 @@ function App() {
         <Categories/>
         </Route>
       </Switch>
+      <Footer/>
     </HashRouter>
   );
 }

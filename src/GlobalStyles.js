@@ -12,5 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 body{
   background-color: ${({theme})=>theme.color.light};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 `;
