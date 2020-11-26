@@ -41,7 +41,7 @@ export const toys = [
     {
       title: "doll",
       image:
-        "https://images.unsplash.com/photo-1544499736-3a726451d0cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=736&q=80",
+        "https://cdn.pixabay.com/photo/2019/03/17/19/58/doll-4061815_1280.jpg",
         sounds: doll,
     },
     {
@@ -53,7 +53,7 @@ export const toys = [
     {
       title: "kite",
       image:
-        "https://images.unsplash.com/photo-1602855597969-9924386614ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=637&q=80",
+        "https://cdn.pixabay.com/photo/2016/01/24/19/55/kite-1159538_1280.jpg",
         sounds: kite,
     },
     {
@@ -83,13 +83,13 @@ export const toys = [
       {
         title: "train",
         image:
-          "https://images.unsplash.com/photo-1535535112387-56ffe8db21ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80",
+          "https://cdn.pixabay.com/photo/2013/10/02/15/19/train-189828_1280.jpg",
           sounds: train,
       },
       {
         title: "castle",
         image:
-          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=631&q=80",
+          "https://cdn.pixabay.com/photo/2014/11/15/23/29/fairytale-532850_1280.jpg",
           sounds: castle,
       },
       {

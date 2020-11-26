@@ -5,12 +5,7 @@ export const StyledParagraph = styled.p`
 padding: 10px;
 font-size: 18px;
 font-weight: bold;
-`;
-export const StyledContainer = styled.div`
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
+text-align: center;
 `;
 export const StyledButton = styled.button`
 cursor: pointer;

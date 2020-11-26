@@ -17,7 +17,7 @@ export const fruits = [
     {
       title: "orange",
       image:
-        "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80",
+        "https://cdn.pixabay.com/photo/2017/01/20/15/04/orange-1995052_1280.jpg",
         sounds: orange,
     },
     {
@@ -29,7 +29,7 @@ export const fruits = [
     {
       title: "pear",
       image:
-        "https://images.unsplash.com/photo-1601876819102-99560f772713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        "https://cdn.pixabay.com/photo/2015/12/09/13/12/peer-1084687_1280.jpg",
         sounds: pear,
     },
     {

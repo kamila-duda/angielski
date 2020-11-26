@@ -9,18 +9,19 @@ import {
   resetTest,
 } from "../categoriesSlice";
 import {
-  StyledContainer,
   StyledFontAwesomeIcon,
-  StyledTile,
   StyledTitle,
   StyledButton,
   StyledLink,
+  StyledContainer,
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import wrong from "./../files/sounds/tryagain.mp3";
 import good from "./../files/sounds/goodanswer.ogg";
 import ErrorPage from "../../common/ErrorPage";
 import { toCategories } from "../../routes";
+import Tile from "../../common/Tile";
+import Container from "../../common/Container";
 
 const TestPage = () => {
   const dispatch = useDispatch();
@@ -58,20 +59,22 @@ const TestPage = () => {
       </StyledTitle>
       <StyledContainer>
         {words.map((word) => (
-          <StyledTile
-            key={word.title}
-            image={word.image}
+          <StyledLink
             onClick={() => {
               checkAnswer(word.title);
             }}
-          />
+          >
+            <Tile key={word.title} image={word.image} testedTile={true} />
+          </StyledLink>
         ))}
       </StyledContainer>
-      <StyledContainer>
-      <StyledLink to={toCategories()}>
-          <StyledButton onClick={()=>dispatch(resetTest())}>Koniec</StyledButton>
+      <Container>
+        <StyledLink to={toCategories()}>
+          <StyledButton onClick={() => dispatch(resetTest())}>
+            Koniec
+          </StyledButton>
         </StyledLink>
-      </StyledContainer>
+      </Container>
     </>
   );
 };

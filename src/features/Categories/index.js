@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Container from "../../common/Container";
+import Tile from "../../common/Tile";
 import { toTest } from "../../routes";
 import {
   addToTest,
@@ -8,11 +10,9 @@ import {
   selectStateCategories,
   startTest,
   toggleAllChecked,
-  toggleCheck
+  toggleCheck,
 } from "../categoriesSlice";
 import {
-  StyledTile,
-  StyledContainer,
   StyledTitle,
   StyledButton,
   StyledParagraph,
@@ -25,31 +25,40 @@ const Categories = () => {
   const allChecked = useSelector(selectAllChecked);
   const startFlag = useSelector(selectStartFlag);
   return (
-    <><StyledTitle>Test z języka angielskiego dla klasy I</StyledTitle>
+    <>
+      <StyledTitle>Test z języka angielskiego dla klasy I</StyledTitle>
       <StyledParagraph>Wybierz kategorię słówek:</StyledParagraph>
-      <StyledContainer>
+      <Container>
         <StyledButton onClick={() => dispatch(toggleAllChecked(words))}>
           {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}
         </StyledButton>
         <StyledLink to={toTest()}>
-          <StyledButton disabled={startFlag} onClick={()=>dispatch(startTest(words))}>Start</StyledButton>
+          <StyledButton
+            disabled={startFlag}
+            onClick={() => dispatch(startTest(words))}
+          >
+            Start
+          </StyledButton>
         </StyledLink>
-      </StyledContainer>
-      <StyledContainer>
+      </Container>
+      <Container>
         {words.map((category) => (
-          <StyledTile
-            key={category.id}
-            image={category.image}
+          <StyledLink
             onClick={() => {
               dispatch(addToTest(category));
               dispatch(toggleCheck(category.id));
             }}
-            checked={allChecked || category.border}
           >
-            <StyledTitle>{category.title}</StyledTitle>
-          </StyledTile>
+            <Tile
+              key={category.id}
+              image={category.image}
+              checked={allChecked || category.border}
+              testedTile={false}
+              title={<StyledTitle>{category.title}</StyledTitle>}
+            />
+          </StyledLink>
         ))}
-      </StyledContainer>
+      </Container>
     </>
   );
 };
