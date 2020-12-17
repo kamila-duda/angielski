@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-  position: fixed;
-  bottom: 0;
   text-align: center;
+  margin-top: 15px;
   background-color: ${({ theme }) => theme.color.middle};
   height: 30px;
   width: 100%;
