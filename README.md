@@ -1,3 +1,12 @@
+# English for Kids
+
+Check live demo: [Live demo](https://kamila-duda.github.io/angielski/)
+
+This project was created for my daughter to help her to learn words.
+
+Project is not finished. I plan to develop it.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
