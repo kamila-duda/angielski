@@ -1,32 +1,16 @@
-const mainLocalStorageKey = "ang-categories";
-const localStorageKey = "ang-categories-display-image";
-const localStorageKeyWord = "ang-categories-word";
-const localStorageKeySound = "ang-categories-sound";
+export const mainLocalStorageKey = "ang-categories-choose";
+export const localStorageKeyQuestion = "ang-categories-question";
+export const localStorageKeySound = "ang-categories-sound";
+export const localStorageKeyImg = "ang-categories-images";
 
-export const setLocalStorageData = (words) => {
-  localStorage.setItem(mainLocalStorageKey, JSON.stringify(words));
+
+export const unsetLocalStorageData = (keyName) => {
+  localStorage.removeItem(keyName);
 };
 
-export const getLocalStorageData = () =>
-  JSON.parse(localStorage.getItem(mainLocalStorageKey)) || [];
-
-export const setLocalStorageDisplayImage = (image) => {
-  localStorage.setItem(localStorageKey, JSON.stringify(image));
+export const setLocalStorageData = (keyName, data) => {
+  localStorage.setItem(keyName, JSON.stringify(data));
 };
 
-export const getLocalStorageDisplayImage = () =>
-  JSON.parse(localStorage.getItem(localStorageKey)) || [];
-
-export const setLocalStorageTestWord = (word) => {
-  localStorage.setItem(localStorageKeyWord, JSON.stringify(word));
-};
-
-export const getLocalStorageTestWord = () =>
-  JSON.parse(localStorage.getItem(localStorageKeyWord)) || [];
-
-export const setLocalStorageSoundOn = (sound) => {
-  localStorage.setItem(localStorageKeySound, JSON.stringify(sound));
-};
-
-export const getLocalStorageSoundOn = () =>
-  JSON.parse(localStorage.getItem(localStorageKeySound)) || [];
+export const getLocalStorageData = (keyName) =>
+  JSON.parse(localStorage.getItem(keyName)) || [];

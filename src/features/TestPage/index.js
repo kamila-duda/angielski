@@ -14,6 +14,7 @@ import {
   StyledButton,
   StyledLink,
   StyledContainer,
+  StyledAnchor,
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import wrong from "./../files/sounds/tryagain.mp3";
@@ -22,6 +23,7 @@ import ErrorPage from "../../common/ErrorPage";
 import { toCategories } from "../../routes";
 import Tile from "../../common/Tile";
 import Container from "../../common/Container";
+import { soundOn } from "../soundOn";
 
 const TestPage = () => {
   const dispatch = useDispatch();
@@ -31,23 +33,18 @@ const TestPage = () => {
   const testWordSound = useSelector(selectSoundOn);
 
   useEffect(() => {
-    soundOn();
-  }, [testWord]);
+    soundOn(testWordSound);
+  }, [testWord, testWordSound]);
 
   const checkAnswer = (answer) => {
     if (answer === testWord) {
-      const sounds = new Audio(good);
-      sounds.play();
+      soundOn(good)
       dispatch(drawIndex());
     } else {
-      const sounds = new Audio(wrong);
-      sounds.play();
+      soundOn(wrong);
     }
   };
-  const soundOn = () => {
-    const sound = new Audio(testWordSound);
-    sound.play();
-  };
+
   if (isError) {
     return <ErrorPage />;
   }
@@ -55,21 +52,22 @@ const TestPage = () => {
     <>
       <StyledTitle>
         {testWord}
-        <StyledFontAwesomeIcon onClick={() => soundOn()} icon={faVolumeUp} />
+        <StyledFontAwesomeIcon onClick={() => soundOn(testWordSound)} icon={faVolumeUp} />
       </StyledTitle>
       <StyledContainer>
         {words.map((word) => (
-          <StyledLink
+          <StyledAnchor
+          key={word.title}
             onClick={() => {
               checkAnswer(word.title);
             }}
           >
-            <Tile key={word.title} image={word.image} testedTile={true} />
-          </StyledLink>
+            <Tile image={word.image} testedTile={true} />
+          </StyledAnchor>
         ))}
       </StyledContainer>
       <Container>
-        <StyledLink to={toCategories()}>
+        <StyledLink to={toCategories()} replace>
           <StyledButton onClick={() => dispatch(resetTest())}>
             Koniec
           </StyledButton>

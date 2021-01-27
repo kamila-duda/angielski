@@ -98,3 +98,6 @@ ${({ image }) =>
 export const StyledLink = styled(Link)`
     text-decoration: none;
 `;
+export const StyledAnchor = styled.a`
+text-decoration: none;
+`;

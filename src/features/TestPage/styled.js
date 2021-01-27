@@ -74,6 +74,9 @@ ${({ image }) =>
 export const StyledLink = styled(Link)`
     text-decoration: none;
 `;
+export const StyledAnchor = styled.a`
+text-decoration: none;
+`;
 export const StyledButton = styled.button`
 cursor: pointer;
 width: 250px;

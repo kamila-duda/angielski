@@ -57,4 +57,9 @@ export const StyledTile = styled.div`
     }
       
     `}
+    @media (max-width: ${({theme})=>theme.breakpoint.xs}) {
+    width: 120px;
+    height: 100px;
+    font-size: 13px;
+  }
 `;

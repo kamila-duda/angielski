@@ -17,6 +17,7 @@ import {
   StyledButton,
   StyledParagraph,
   StyledLink,
+  StyledAnchor,
 } from "./styled";
 
 const Categories = () => {
@@ -29,13 +30,13 @@ const Categories = () => {
       <StyledTitle>Test z języka angielskiego dla klasy I</StyledTitle>
       <StyledParagraph>Wybierz kategorię słówek:</StyledParagraph>
       <Container>
-        <StyledButton onClick={() => dispatch(toggleAllChecked(words))}>
+        <StyledButton onClick={() => dispatch(toggleAllChecked())}>
           {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}
         </StyledButton>
         <StyledLink to={toTest()}>
           <StyledButton
             disabled={startFlag}
-            onClick={() => dispatch(startTest(words))}
+            onClick={() => dispatch(startTest())}
           >
             Start
           </StyledButton>
@@ -43,20 +44,20 @@ const Categories = () => {
       </Container>
       <Container>
         {words.map((category) => (
-          <StyledLink
+          <StyledAnchor
+          key={category.id}
             onClick={() => {
               dispatch(addToTest(category));
               dispatch(toggleCheck(category.id));
             }}
           >
             <Tile
-              key={category.id}
               image={category.image}
               checked={allChecked || category.border}
               testedTile={false}
               title={<StyledTitle>{category.title}</StyledTitle>}
             />
-          </StyledLink>
+          </StyledAnchor>
         ))}
       </Container>
     </>

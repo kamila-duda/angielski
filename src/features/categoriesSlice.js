@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { words } from "./files/words";
 import {
   getLocalStorageData,
-  getLocalStorageDisplayImage,
-  getLocalStorageSoundOn,
-  getLocalStorageTestWord,
+  localStorageKeyImg,
+  localStorageKeyQuestion,
+  localStorageKeySound,
+  mainLocalStorageKey,
 } from "./localStorageData";
 import { shuffleArray } from "./shuffleFunction";
 
@@ -12,12 +13,13 @@ export const categoriesSlice = createSlice({
   name: "categories",
   initialState: {
     categories: words,
-    testCategories: {
-      words: getLocalStorageData(),
-      testWord: getLocalStorageTestWord(),
-      soundOn: getLocalStorageSoundOn(),
-    },
-    displayImage: getLocalStorageDisplayImage(),
+    testCategories:
+      {
+        words: getLocalStorageData(mainLocalStorageKey),
+        testWord: getLocalStorageData(localStorageKeyQuestion),
+        soundOn: getLocalStorageData(localStorageKeySound),
+      } || {},
+    displayImage: getLocalStorageData(localStorageKeyImg) || [],
     testWords: [],
     allChecked: false,
     disabledStartButton: true,
@@ -28,12 +30,12 @@ export const categoriesSlice = createSlice({
     addToTest: (state) => {
       state.disabledStartButton = false;
     },
-    startTest: (state, { payload: categories }) => {
+    startTest: (state) => {
       state.testCategories.words = [];
       state.testCategories.testWord = "";
       state.testCategories.soundOn = "";
       state.displayImage = [];
-      for (const category of categories) {
+      for (const category of state.categories) {
         if (category.border && state.isStart === false) {
           state.testCategories.words = state.testCategories.words.concat(
             category.words
@@ -42,24 +44,16 @@ export const categoriesSlice = createSlice({
       }
       state.isStart = true;
     },
-    toggleAllChecked: (state, { payload: categories }) => {
+    toggleAllChecked: (state) => {
       state.allChecked = !state.allChecked;
       if (state.allChecked) {
         state.disabledStartButton = false;
-        for (const category of categories) {
-          const index = state.categories.findIndex(
-            ({ id }) => id === category.id
-          );
-          state.categories[index].border = true;
+        for (const category of state.categories) {
+          category.border = true;
         }
       } else {
-        for (const category of categories) {
-          if (category.border) {
-            const index = state.categories.findIndex(
-              ({ id }) => id === category.id
-            );
-            state.categories[index].border = false;
-          }
+        for (const category of state.categories) {
+          category.border = false;
         }
         state.disabledStartButton = true;
       }
@@ -108,6 +102,7 @@ export const categoriesSlice = createSlice({
       state.disabledStartButton = true;
       state.isStart = false;
       state.allChecked = false;
+      state.displayImage = [];
       for (const category of state.categories) {
         category.border = false;
       }
