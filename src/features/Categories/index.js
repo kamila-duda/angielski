@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "../../common/Container";
 import Tile from "../../common/Tile";
 import { toTest } from "../../routes";
 import {
-  activeStartButton,
-  addToTest,
+  selectCategory,
   selectAllChecked,
   selectStartFlag,
   selectStateCategories,
   startTest,
   toggleAllChecked,
-  toggleCheck,
 } from "../categoriesSlice";
 import {
   StyledTitle,
@@ -26,7 +24,7 @@ const Categories = () => {
   const dispatch = useDispatch();
   const allChecked = useSelector(selectAllChecked);
   const startFlag = useSelector(selectStartFlag);
- 
+
   return (
     <>
       <StyledTitle>Test z języka angielskiego dla klasy I</StyledTitle>
@@ -47,11 +45,10 @@ const Categories = () => {
       <Container>
         {words.map((category) => (
           <StyledAnchor
-          key={category.id}
-          onClick={() => {
-            dispatch(activeStartButton());
-            dispatch(toggleCheck(category.id));
-          }}
+            key={category.id}
+            onClick={() => {
+              dispatch(selectCategory(category.id));
+            }}
           >
             <Tile
               image={category.image}

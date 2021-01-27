@@ -7,7 +7,7 @@ import {
   selectSoundOn,
   selectIsError,
   resetTest,
-  selectIsLoading
+  selectIsLoading,
 } from "../categoriesSlice";
 import {
   StyledFontAwesomeIcon,
@@ -40,7 +40,7 @@ const TestPage = () => {
 
   const checkAnswer = (answer) => {
     if (answer === testWord) {
-      soundOn(good)
+      soundOn(good);
       dispatch(drawIndex());
     } else {
       soundOn(wrong);
@@ -52,21 +52,26 @@ const TestPage = () => {
   }
 
   if (isLoading) {
-    return <Container>
-      <p>Losuję ...</p>
-    </Container>
+    return (
+      <Container>
+        <p>Losuję ...</p>
+      </Container>
+    );
   }
 
   return (
     <>
       <StyledTitle>
         {testWord}
-        <StyledFontAwesomeIcon onClick={() => soundOn(testWordSound)} icon={faVolumeUp} />
+        <StyledFontAwesomeIcon
+          onClick={() => soundOn(testWordSound)}
+          icon={faVolumeUp}
+        />
       </StyledTitle>
       <StyledContainer>
         {words.map((word) => (
           <StyledAnchor
-          key={word.title}
+            key={word.title}
             onClick={() => {
               checkAnswer(word.title);
             }}

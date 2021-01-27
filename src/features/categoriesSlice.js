@@ -13,12 +13,12 @@ export const categoriesSlice = createSlice({
   name: "categories",
   initialState: {
     categories: words,
-    testCategories:
-      {
-        words: getLocalStorageData(mainLocalStorageKey),
-        testWord: getLocalStorageData(localStorageKeyQuestion),
-        soundOn: getLocalStorageData(localStorageKeySound),
-      } || {},
+    selectedCategories: [],
+    testCategories: {
+      words: getLocalStorageData(mainLocalStorageKey) || [],
+      testWord: getLocalStorageData(localStorageKeyQuestion) || [],
+      soundOn: getLocalStorageData(localStorageKeySound) || [],
+    },
     displayImage: getLocalStorageData(localStorageKeyImg) || [],
     testWords: [],
     allChecked: false,
@@ -27,22 +27,22 @@ export const categoriesSlice = createSlice({
     isError: false,
   },
   reducers: {
-    activeStartButton: (state) => {
-      state.activeStartButton = true;
-    },
-    startTest: (state) => {
-      state.testCategories.words = [];
-      state.testCategories.testWord = "";
-      state.testCategories.soundOn = "";
-      state.displayImage = [];
-      for (const category of state.categories) {
-        if (category.border && state.isStart === false) {
-          state.testCategories.words = state.testCategories.words.concat(
-            category.words
-          );
-        }
+    selectCategory: (state, { payload: categoryId }) => {
+      if (!state.selectedCategories.includes(categoryId)) {
+        state.selectedCategories.push(categoryId);
+      } else {
+        const index = state.selectedCategories.findIndex(
+          (id) => id === categoryId
+        );
+        state.selectedCategories.splice(index, 1);
       }
-      state.isStart = true;
+      if (state.selectedCategories.length > 0) {
+        state.activeStartButton = true;
+      } else {
+        state.activeStartButton = false;
+      }
+      const index = state.categories.findIndex(({ id }) => id === categoryId);
+      state.categories[index].border = !state.categories[index].border;
     },
     toggleAllChecked: (state) => {
       state.allChecked = !state.allChecked;
@@ -58,10 +58,22 @@ export const categoriesSlice = createSlice({
         state.activeStartButton = false;
       }
     },
-    toggleCheck: (state, { payload: categoryId }) => {
-      state.isStart = false;
-      const index = state.categories.findIndex(({ id }) => id === categoryId);
-      state.categories[index].border = !state.categories[index].border;
+    startTest: (state) => {
+      state.displayImage = [];
+      if (!state.isStart) {
+        for (const category of state.categories) {
+          if (category.border) {
+            state.testCategories.words = state.testCategories.words.concat(
+              category.words
+            );
+          }
+        }
+        state.isStart = true;
+      }
+    },
+    drawIndex: (state) => {
+      state.isLoading = true;
+      state.displayImage = [];
     },
     setTestWord: (state, { payload: index }) => {
       state.isLoading = false;
@@ -90,19 +102,16 @@ export const categoriesSlice = createSlice({
       }
       shuffleArray(state.displayImage);
     },
-    drawIndex: (state) => {
-      state.isLoading = true;
-      state.displayImage = [];
-    },
     setError: (state) => {
       state.isError = true;
     },
     resetTest: (state) => {
-      state.testCategories = {};
+      state.testCategories = { words: [], testWord: [], soundOn: [] };
       state.activeStartButton = false;
       state.isStart = false;
       state.allChecked = false;
       state.displayImage = [];
+      state.selectedCategories = [];
       for (const category of state.categories) {
         category.border = false;
       }
@@ -111,8 +120,7 @@ export const categoriesSlice = createSlice({
 });
 
 export const {
-  activeStartButton,
-  toggleCheck,
+  selectCategory,
   setAnswer,
   setChecked,
   toggleAllChecked,
@@ -138,7 +146,7 @@ export const selectTestWord = (state) =>
 export const selectTestWords = (state) => selectCategories(state).testWords;
 export const selectSoundOn = (state) =>
   selectCategories(state).testCategories.soundOn;
-  export const selectIsLoading = (state) => selectCategories(state).isLoading;
+export const selectIsLoading = (state) => selectCategories(state).isLoading;
 export const selectIsError = (state) => selectCategories(state).isError;
 
 export default categoriesSlice.reducer;

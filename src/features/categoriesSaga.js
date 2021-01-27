@@ -6,8 +6,6 @@ import {
   drawIndex,
   setError,
   resetTest,
-  toggleCheck,
-  activeStartButton
 } from "./categoriesSlice";
 import {
   localStorageKeyImg,
@@ -24,9 +22,12 @@ function* setNewWordHandler() {
     const words = store.getState().categories.testCategories.words;
     let index = Math.floor(Math.random() * words.length);
     const testWords = store.getState().categories.testWords;
-    if (testWords.indexOf(index) > -1) {
+    while(testWords.indexOf(index) > -1){
       index = Math.floor(Math.random() * words.length);
     }
+    // if (testWords.indexOf(index) > -1) {
+    //   index = Math.floor(Math.random() * words.length);
+    // }
     yield put(setTestWord(index));
   } catch (error) {
     yield put(setError());
