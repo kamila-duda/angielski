@@ -4,17 +4,17 @@ import { StyledTitle } from "../../features/Categories/styled";
 export const StyledTile = styled.div`
   position: relative;
   cursor: pointer;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 150px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #fff;
+  font-size: 18px;
+  color: ${({ theme }) => theme.color.lighter};
   text-transform: uppercase;
   border-radius: 15px;
   border: 3px solid rgba(0, 0, 0, 0%);
-  margin: 10px;
   background-color: rgba(0, 0, 0, 30%);
   ${({ checked }) =>
     checked &&

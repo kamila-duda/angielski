@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.section`
 display: flex;
 flex-wrap: wrap;
 align-items: center;
@@ -12,6 +12,7 @@ min-height: 300px;
 
 export const StyledTitle = styled.h2`
 position: relative;
+cursor: pointer;
 text-align: center;
 &::after {
     content: "";
@@ -27,7 +28,6 @@ text-align: center;
 `;
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 color: ${({theme})=>theme.color.middle};
-cursor: pointer;
 margin-left: 5px;
 `;
 export const StyledTile = styled.div`

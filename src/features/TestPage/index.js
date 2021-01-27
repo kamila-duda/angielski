@@ -53,18 +53,17 @@ const TestPage = () => {
 
   if (isLoading) {
     return (
-      <Container>
-        <p>Losuję ...</p>
-      </Container>
-    );
-  }
+    <Container>
+      <p>Losuję ...</p>
+    </Container>
+    )
+  };
 
   return (
     <>
-      <StyledTitle>
+      <StyledTitle onClick={() => soundOn(testWordSound)}>
         {testWord}
         <StyledFontAwesomeIcon
-          onClick={() => soundOn(testWordSound)}
           icon={faVolumeUp}
         />
       </StyledTitle>
