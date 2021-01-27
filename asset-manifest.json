@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/angielski/static/js/main.f87d2779.chunk.js",
-    "main.js.map": "/angielski/static/js/main.f87d2779.chunk.js.map",
+    "main.js": "/angielski/static/js/main.30717fe3.chunk.js",
+    "main.js.map": "/angielski/static/js/main.30717fe3.chunk.js.map",
     "runtime-main.js": "/angielski/static/js/runtime-main.c7a33f52.js",
     "runtime-main.js.map": "/angielski/static/js/runtime-main.c7a33f52.js.map",
-    "static/js/2.073310c7.chunk.js": "/angielski/static/js/2.073310c7.chunk.js",
-    "static/js/2.073310c7.chunk.js.map": "/angielski/static/js/2.073310c7.chunk.js.map",
+    "static/js/2.c0f5dd6b.chunk.js": "/angielski/static/js/2.c0f5dd6b.chunk.js",
+    "static/js/2.c0f5dd6b.chunk.js.map": "/angielski/static/js/2.c0f5dd6b.chunk.js.map",
     "index.html": "/angielski/index.html",
-    "static/js/2.073310c7.chunk.js.LICENSE.txt": "/angielski/static/js/2.073310c7.chunk.js.LICENSE.txt",
+    "static/js/2.c0f5dd6b.chunk.js.LICENSE.txt": "/angielski/static/js/2.c0f5dd6b.chunk.js.LICENSE.txt",
     "static/media/apple.3971bdf0.ogg": "/angielski/static/media/apple.3971bdf0.ogg",
     "static/media/bag.e68e6255.ogg": "/angielski/static/media/bag.e68e6255.ogg",
     "static/media/ball.8292826c.ogg": "/angielski/static/media/ball.8292826c.ogg",
@@ -74,7 +74,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c7a33f52.js",
-    "static/js/2.073310c7.chunk.js",
-    "static/js/main.f87d2779.chunk.js"
+    "static/js/2.c0f5dd6b.chunk.js",
+    "static/js/main.30717fe3.chunk.js"
   ]
 }
