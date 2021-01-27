@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.section`
-  max-width: 1200px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;

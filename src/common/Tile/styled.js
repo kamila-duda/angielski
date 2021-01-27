@@ -4,7 +4,7 @@ import { StyledTitle } from "../../features/Categories/styled";
 export const StyledTile = styled.div`
   position: relative;
   cursor: pointer;
-  width: 250px;
+  width: 200px;
   height: 200px;
   display: flex;
   align-items: center;

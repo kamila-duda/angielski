@@ -8,13 +8,13 @@ import {
   resetTest,
 } from "./categoriesSlice";
 import {
-  localStorageKeyImg,
-  localStorageKeyQuestion,
-  localStorageKeySound,
-  mainLocalStorageKey,
-  setLocalStorageData,
-  unsetLocalStorageData,
-} from "./localStorageData";
+  sessionStorageKeyImg,
+  sessionStorageKeyQuestion,
+  sessionStorageKeySound,
+  mainSessionStorageKey,
+  setSessionStorageData,
+  unsetSessionStorageData,
+} from "./sessionStorageData";
 
 function* setNewWordHandler() {
   try {
@@ -34,31 +34,31 @@ function* setNewWordHandler() {
   }
 }
 
-function* setLocalStorageDataHandler() {
+function* setSessionStorageDataHandler() {
   const words = store.getState().categories.testCategories.words;
-  yield call(setLocalStorageData, mainLocalStorageKey, words);
+  yield call(setSessionStorageData, mainSessionStorageKey, words);
 }
 
-function* setLocalStorageTestDataHandler() {
+function* setSessionStorageTestDataHandler() {
   const data = store.getState().categories.testCategories.testWord;
-  yield call(setLocalStorageData, localStorageKeyQuestion, data);
+  yield call(setSessionStorageData, sessionStorageKeyQuestion, data);
 
   const image = store.getState().categories.displayImage;
-  yield call(setLocalStorageData, localStorageKeyImg, image);
+  yield call(setSessionStorageData, sessionStorageKeyImg, image);
   const soundOn = store.getState().categories.testCategories.soundOn;
-  yield call(setLocalStorageData, localStorageKeySound, soundOn);
+  yield call(setSessionStorageData, sessionStorageKeySound, soundOn);
 }
-function* unsetLocalStorageDataHandler() {
-  yield call(unsetLocalStorageData, mainLocalStorageKey);
-  yield call(unsetLocalStorageData, localStorageKeyQuestion);
-  yield call(unsetLocalStorageData, localStorageKeySound);
-  yield call(unsetLocalStorageData, localStorageKeyImg);
+function* unsetSessionStorageDataHandler() {
+  yield call(unsetSessionStorageData, mainSessionStorageKey);
+  yield call(unsetSessionStorageData, sessionStorageKeyQuestion);
+  yield call(unsetSessionStorageData, sessionStorageKeySound);
+  yield call(unsetSessionStorageData, sessionStorageKeyImg);
 }
 
 export function* categoriesSaga() {
-  yield takeEvery(startTest.type, setLocalStorageDataHandler);
+  yield takeEvery(startTest.type, setSessionStorageDataHandler);
   yield takeEvery(startTest.type, setNewWordHandler);
   yield takeEvery(drawIndex.type, setNewWordHandler);
-  yield takeEvery(setTestWord.type, setLocalStorageTestDataHandler);
-  yield takeEvery(resetTest.type, unsetLocalStorageDataHandler);
+  yield takeEvery(setTestWord.type, setSessionStorageTestDataHandler);
+  yield takeEvery(resetTest.type, unsetSessionStorageDataHandler);
 }

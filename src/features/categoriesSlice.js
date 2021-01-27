@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { words } from "./files/words";
 import {
-  getLocalStorageData,
-  localStorageKeyImg,
-  localStorageKeyQuestion,
-  localStorageKeySound,
-  mainLocalStorageKey,
-} from "./localStorageData";
+  getSessionStorageData,
+  sessionStorageKeyImg,
+  sessionStorageKeyQuestion,
+  sessionStorageKeySound,
+  mainSessionStorageKey,
+} from "./sessionStorageData";
 import { shuffleArray } from "./shuffleFunction";
 
 export const categoriesSlice = createSlice({
@@ -15,11 +15,11 @@ export const categoriesSlice = createSlice({
     categories: words,
     selectedCategories: [],
     testCategories: {
-      words: getLocalStorageData(mainLocalStorageKey) || [],
-      testWord: getLocalStorageData(localStorageKeyQuestion) || [],
-      soundOn: getLocalStorageData(localStorageKeySound) || [],
+      words: getSessionStorageData(mainSessionStorageKey) || [],
+      testWord: getSessionStorageData(sessionStorageKeyQuestion) || [],
+      soundOn: getSessionStorageData(sessionStorageKeySound) || [],
     },
-    displayImage: getLocalStorageData(localStorageKeyImg) || [],
+    displayImage: getSessionStorageData(sessionStorageKeyImg) || [],
     testWords: [],
     allChecked: false,
     activeStartButton: false,
