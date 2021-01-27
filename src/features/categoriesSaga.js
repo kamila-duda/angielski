@@ -6,6 +6,8 @@ import {
   drawIndex,
   setError,
   resetTest,
+  toggleCheck,
+  activeStartButton
 } from "./categoriesSlice";
 import {
   localStorageKeyImg,
@@ -56,7 +58,6 @@ export function* categoriesSaga() {
   yield takeEvery(startTest.type, setLocalStorageDataHandler);
   yield takeEvery(startTest.type, setNewWordHandler);
   yield takeEvery(drawIndex.type, setNewWordHandler);
-
   yield takeEvery(setTestWord.type, setLocalStorageTestDataHandler);
   yield takeEvery(resetTest.type, unsetLocalStorageDataHandler);
 }

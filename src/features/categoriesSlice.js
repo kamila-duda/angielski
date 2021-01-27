@@ -22,13 +22,13 @@ export const categoriesSlice = createSlice({
     displayImage: getLocalStorageData(localStorageKeyImg) || [],
     testWords: [],
     allChecked: false,
-    disabledStartButton: true,
+    activeStartButton: false,
     isStart: false,
     isError: false,
   },
   reducers: {
-    addToTest: (state) => {
-      state.disabledStartButton = false;
+    activeStartButton: (state) => {
+      state.activeStartButton = true;
     },
     startTest: (state) => {
       state.testCategories.words = [];
@@ -47,7 +47,7 @@ export const categoriesSlice = createSlice({
     toggleAllChecked: (state) => {
       state.allChecked = !state.allChecked;
       if (state.allChecked) {
-        state.disabledStartButton = false;
+        state.activeStartButton = true;
         for (const category of state.categories) {
           category.border = true;
         }
@@ -55,7 +55,7 @@ export const categoriesSlice = createSlice({
         for (const category of state.categories) {
           category.border = false;
         }
-        state.disabledStartButton = true;
+        state.activeStartButton = false;
       }
     },
     toggleCheck: (state, { payload: categoryId }) => {
@@ -99,7 +99,7 @@ export const categoriesSlice = createSlice({
     },
     resetTest: (state) => {
       state.testCategories = {};
-      state.disabledStartButton = true;
+      state.activeStartButton = false;
       state.isStart = false;
       state.allChecked = false;
       state.displayImage = [];
@@ -111,7 +111,7 @@ export const categoriesSlice = createSlice({
 });
 
 export const {
-  addToTest,
+  activeStartButton,
   toggleCheck,
   setAnswer,
   setChecked,
@@ -132,12 +132,13 @@ export const selectTestCategories = (state) =>
 export const selectAnswer = (state) => selectCategories(state).answer;
 export const selectAllChecked = (state) => selectCategories(state).allChecked;
 export const selectStartFlag = (state) =>
-  selectCategories(state).disabledStartButton;
+  selectCategories(state).activeStartButton;
 export const selectTestWord = (state) =>
   selectCategories(state).testCategories.testWord;
 export const selectTestWords = (state) => selectCategories(state).testWords;
 export const selectSoundOn = (state) =>
   selectCategories(state).testCategories.soundOn;
+  export const selectIsLoading = (state) => selectCategories(state).isLoading;
 export const selectIsError = (state) => selectCategories(state).isError;
 
 export default categoriesSlice.reducer;

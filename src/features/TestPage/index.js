@@ -7,6 +7,7 @@ import {
   selectSoundOn,
   selectIsError,
   resetTest,
+  selectIsLoading
 } from "../categoriesSlice";
 import {
   StyledFontAwesomeIcon,
@@ -28,6 +29,7 @@ import { soundOn } from "../soundOn";
 const TestPage = () => {
   const dispatch = useDispatch();
   const isError = useSelector(selectIsError);
+  const isLoading = useSelector(selectIsLoading);
   const words = useSelector(selectTestCategories);
   const testWord = useSelector(selectTestWord);
   const testWordSound = useSelector(selectSoundOn);
@@ -48,6 +50,13 @@ const TestPage = () => {
   if (isError) {
     return <ErrorPage />;
   }
+
+  if (isLoading) {
+    return <Container>
+      <p>Losuję ...</p>
+    </Container>
+  }
+
   return (
     <>
       <StyledTitle>
