@@ -15,9 +15,9 @@ export const categoriesSlice = createSlice({
     categories: words,
     selectedCategories: [],
     testCategories: {
-      words: getSessionStorageData(mainSessionStorageKey) || [],
-      testWord: getSessionStorageData(sessionStorageKeyQuestion) || [],
-      soundOn: getSessionStorageData(sessionStorageKeySound) || [],
+      words: getSessionStorageData(mainSessionStorageKey),
+      testWord: getSessionStorageData(sessionStorageKeyQuestion),
+      soundOn: getSessionStorageData(sessionStorageKeySound),
     },
     displayImage: getSessionStorageData(sessionStorageKeyImg) || [],
     testWords: [],
@@ -92,7 +92,7 @@ export const categoriesSlice = createSlice({
       state.isLoading = false;
       if(!state.endTest){
         state.testCategories.testWord = state.testCategories.words[index].title;
-      state.testWords.push(index);
+      state.testWords.splice(0, 1, index);
       state.testCategories.soundOn = state.testCategories.words[index].sounds;
       state.displayImage.push(state.testCategories.words[index]);
       let indexArray = [];

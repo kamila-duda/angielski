@@ -20,9 +20,8 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-color: ${({theme})=>theme.color.middle};
+color: ${({theme})=>theme.color.lighter};
 margin: 0 8px;
-font-size: 20px;
 `;
 export const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.color.lighter};
@@ -30,7 +29,6 @@ export const StyledTitle = styled.h1`
   font-size: 24px;
   letter-spacing: -1.5px;
   margin: 0;
-  display: flex;
   @media (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 18px;
   }

@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 export const StyledTitle = styled.h1`
@@ -13,4 +14,9 @@ export const StyledTitle = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {
     font-size: 15px;
   }
+`;
+export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+color: ${({theme})=>theme.color.middle};
+margin: 0 8px;
+font-size: 20px;
 `;
