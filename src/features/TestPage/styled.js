@@ -14,6 +14,7 @@ height: 20px;
 margin: 2%;
 position: relative;
 border: 1px solid ${({theme})=>theme.color.darknest};
+border-radius: 10px;
 width: 96%;
 &::before{
     content: "";
@@ -21,6 +22,7 @@ width: 96%;
     width: ${props=>props.progress}%;
     background-color: ${({theme})=>theme.color.middle};
     height: 100%;
+    border-radius: 9px;
 }
 `;
 export const StyledTitle = styled.h2`
@@ -30,7 +32,8 @@ text-align: center;
 `;
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 color: ${({theme})=>theme.color.middle};
-margin-left: 5px;
+margin: 0 8px;
+font-size: 20px;
 `;
 export const StyledTile = styled.div`
 position: relative;

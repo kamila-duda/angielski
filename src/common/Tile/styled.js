@@ -29,7 +29,7 @@ export const StyledTile = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    border-radius: 15px;
+    border-radius: 12px;
     ${({ image }) =>
       image &&
       css`

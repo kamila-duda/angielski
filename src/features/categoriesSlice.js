@@ -24,6 +24,7 @@ export const categoriesSlice = createSlice({
     allChecked: false,
     activeStartButton: false,
     isStart: false,
+    endTest: false,
     isError: false,
     progressBar: 0,
   },
@@ -78,6 +79,9 @@ export const categoriesSlice = createSlice({
     },
     upProgress: (state) => {
       state.progressBar= state.progressBar+10;
+      if(state.progressBar===100){
+        state.endTest=true;
+      }
     },
     downProgress: (state) => {
       if(state.progressBar>0){
@@ -86,7 +90,8 @@ export const categoriesSlice = createSlice({
     },
     setTestWord: (state, { payload: index }) => {
       state.isLoading = false;
-      state.testCategories.testWord = state.testCategories.words[index].title;
+      if(!state.endTest){
+        state.testCategories.testWord = state.testCategories.words[index].title;
       state.testWords.push(index);
       state.testCategories.soundOn = state.testCategories.words[index].sounds;
       state.displayImage.push(state.testCategories.words[index]);
@@ -110,6 +115,7 @@ export const categoriesSlice = createSlice({
         }
       }
       shuffleArray(state.displayImage);
+      }
     },
     setError: (state) => {
       state.isError = true;
@@ -118,6 +124,8 @@ export const categoriesSlice = createSlice({
       state.testCategories = { words: [], testWord: [], soundOn: [] };
       state.activeStartButton = false;
       state.isStart = false;
+      state.progressBar= 0;
+      state.endTest = false;
       state.allChecked = false;
       state.displayImage = [];
       state.selectedCategories = [];
@@ -160,5 +168,6 @@ export const selectSoundOn = (state) =>
 export const selectIsLoading = (state) => selectCategories(state).isLoading;
 export const selectIsError = (state) => selectCategories(state).isError;
 export const selectProgress = (state) => selectCategories(state).progressBar;
+export const selectEndTest = (state) => selectCategories(state).endTest;
 
 export default categoriesSlice.reducer;

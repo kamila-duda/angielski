@@ -11,6 +11,7 @@ import {
   selectProgress,
   downProgress,
   upProgress,
+  selectEndTest,
 } from "../categoriesSlice";
 import {
   StyledFontAwesomeIcon,
@@ -22,6 +23,7 @@ import {
   StyledProgressBar,
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { faTrophy } from "@fortawesome/free-solid-svg-icons";
 import wrong from "./../files/sounds/tryagain.mp3";
 import good from "./../files/sounds/goodanswer.ogg";
 import ErrorPage from "../../common/ErrorPage";
@@ -38,6 +40,7 @@ const TestPage = () => {
   const testWord = useSelector(selectTestWord);
   const testWordSound = useSelector(selectSoundOn);
   const progress = useSelector(selectProgress);
+  const endTest = useSelector(selectEndTest);
 
   useEffect(() => {
     soundOn(testWordSound);
@@ -57,19 +60,27 @@ const TestPage = () => {
   if (isError) {
     return <ErrorPage />;
   }
-
   
-
   return (
     <>
-      <StyledTitle onClick={() => soundOn(testWordSound)}>
+    {endTest? (<StyledTitle >
+        Congratulations!
+      </StyledTitle>) : 
+      (<StyledTitle onClick={() => soundOn(testWordSound)}>
         {testWord}
         <StyledFontAwesomeIcon icon={faVolumeUp} />
-      </StyledTitle>
+      </StyledTitle>)}
       <StyledProgressBar progress={progress}></StyledProgressBar>
       {isLoading ? (
-        <StyledContainer><p>Losuję ...</p></StyledContainer>
-      ) : (
+        <StyledContainer>
+          <p>Losuję ...</p>
+        </StyledContainer>
+      ) : 
+        (endTest ? ( 
+          <StyledContainer>
+          <StyledFontAwesomeIcon icon={faTrophy} />
+          <p>Brawo! Test ukończony.</p>
+        </StyledContainer>) : (
         <StyledContainer>
           {words.map((word) => (
             <StyledAnchor
@@ -81,8 +92,8 @@ const TestPage = () => {
               <Tile image={word.image} testedTile={true} />
             </StyledAnchor>
           ))}
-        </StyledContainer>
-      )}
+        </StyledContainer>))
+      }
       <Container>
         <StyledLink to={toCategories()} replace>
           <StyledButton onClick={() => dispatch(resetTest())}>
