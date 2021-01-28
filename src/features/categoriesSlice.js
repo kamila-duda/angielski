@@ -25,6 +25,7 @@ export const categoriesSlice = createSlice({
     activeStartButton: false,
     isStart: false,
     isError: false,
+    progressBar: 0,
   },
   reducers: {
     selectCategory: (state, { payload: categoryId }) => {
@@ -74,6 +75,14 @@ export const categoriesSlice = createSlice({
     drawIndex: (state) => {
       state.isLoading = true;
       state.displayImage = [];
+    },
+    upProgress: (state) => {
+      state.progressBar= state.progressBar+10;
+    },
+    downProgress: (state) => {
+      if(state.progressBar>0){
+      state.progressBar = state.progressBar-10;
+      }
     },
     setTestWord: (state, { payload: index }) => {
       state.isLoading = false;
@@ -130,6 +139,8 @@ export const {
   checkAnswer,
   drawIndex,
   resetTest,
+  upProgress,
+  downProgress,
 } = categoriesSlice.actions;
 
 const selectCategories = (state) => state.categories;
@@ -148,5 +159,6 @@ export const selectSoundOn = (state) =>
   selectCategories(state).testCategories.soundOn;
 export const selectIsLoading = (state) => selectCategories(state).isLoading;
 export const selectIsError = (state) => selectCategories(state).isError;
+export const selectProgress = (state) => selectCategories(state).progressBar;
 
 export default categoriesSlice.reducer;

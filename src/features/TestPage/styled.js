@@ -9,22 +9,24 @@ align-items: center;
 justify-content: center;
 min-height: 300px;
 `;
-
+export const StyledProgressBar = styled.div.attrs(props=>({width: props.progress}))`
+height: 20px;
+margin: 2%;
+position: relative;
+border: 1px solid ${({theme})=>theme.color.darknest};
+width: 96%;
+&::before{
+    content: "";
+    position: absolute;
+    width: ${props=>props.progress}%;
+    background-color: ${({theme})=>theme.color.middle};
+    height: 100%;
+}
+`;
 export const StyledTitle = styled.h2`
 position: relative;
 cursor: pointer;
 text-align: center;
-&::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: -5px;
-    transform: scaleX(0);
-    transition: transform 1s ease-in-out;
-    background-color: #fff;
-  }
 `;
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 color: ${({theme})=>theme.color.middle};

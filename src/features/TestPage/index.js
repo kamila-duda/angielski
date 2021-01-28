@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectTestCategories,
@@ -8,6 +8,9 @@ import {
   selectIsError,
   resetTest,
   selectIsLoading,
+  selectProgress,
+  downProgress,
+  upProgress,
 } from "../categoriesSlice";
 import {
   StyledFontAwesomeIcon,
@@ -16,6 +19,7 @@ import {
   StyledLink,
   StyledContainer,
   StyledAnchor,
+  StyledProgressBar,
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import wrong from "./../files/sounds/tryagain.mp3";
@@ -33,6 +37,7 @@ const TestPage = () => {
   const words = useSelector(selectTestCategories);
   const testWord = useSelector(selectTestWord);
   const testWordSound = useSelector(selectSoundOn);
+  const progress = useSelector(selectProgress);
 
   useEffect(() => {
     soundOn(testWordSound);
@@ -42,8 +47,10 @@ const TestPage = () => {
     if (answer === testWord) {
       soundOn(good);
       dispatch(drawIndex());
+      dispatch(upProgress());
     } else {
       soundOn(wrong);
+      dispatch(downProgress());
     }
   };
 
@@ -51,34 +58,31 @@ const TestPage = () => {
     return <ErrorPage />;
   }
 
-  if (isLoading) {
-    return (
-    <Container>
-      <p>Losuję ...</p>
-    </Container>
-    )
-  };
+  
 
   return (
     <>
       <StyledTitle onClick={() => soundOn(testWordSound)}>
         {testWord}
-        <StyledFontAwesomeIcon
-          icon={faVolumeUp}
-        />
+        <StyledFontAwesomeIcon icon={faVolumeUp} />
       </StyledTitle>
-      <StyledContainer>
-        {words.map((word) => (
-          <StyledAnchor
-            key={word.title}
-            onClick={() => {
-              checkAnswer(word.title);
-            }}
-          >
-            <Tile image={word.image} testedTile={true} />
-          </StyledAnchor>
-        ))}
-      </StyledContainer>
+      <StyledProgressBar progress={progress}></StyledProgressBar>
+      {isLoading ? (
+        <StyledContainer><p>Losuję ...</p></StyledContainer>
+      ) : (
+        <StyledContainer>
+          {words.map((word) => (
+            <StyledAnchor
+              key={word.title}
+              onClick={() => {
+                checkAnswer(word.title);
+              }}
+            >
+              <Tile image={word.image} testedTile={true} />
+            </StyledAnchor>
+          ))}
+        </StyledContainer>
+      )}
       <Container>
         <StyledLink to={toCategories()} replace>
           <StyledButton onClick={() => dispatch(resetTest())}>
