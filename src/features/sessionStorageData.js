@@ -2,6 +2,7 @@ export const mainSessionStorageKey = "ang-categories-choose";
 export const sessionStorageKeyQuestion = "ang-categories-question";
 export const sessionStorageKeySound = "ang-categories-sound";
 export const sessionStorageKeyImg = "ang-categories-images";
+export const sessionStorageKeyRepeted = "ang-words-repeted";
 
 
 export const unsetSessionStorageData = (keyName) => {
