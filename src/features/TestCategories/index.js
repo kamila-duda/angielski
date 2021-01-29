@@ -10,7 +10,7 @@ import {
   selectStateCategories,
   startTest,
   toggleAllChecked,
-} from "../categoriesSlice";
+} from "../testSlice";
 import {
   StyledTitle,
   StyledButton,
@@ -19,7 +19,7 @@ import {
   StyledAnchor,
 } from "./styled";
 
-const Categories = () => {
+const TestCategories = () => {
   const words = useSelector(selectStateCategories);
   const dispatch = useDispatch();
   const allChecked = useSelector(selectAllChecked);
@@ -27,8 +27,7 @@ const Categories = () => {
 
   return (
     <>
-      <StyledTitle>Test z języka angielskiego dla klasy I</StyledTitle>
-      <StyledParagraph>Wybierz kategorię słówek:</StyledParagraph>
+      <StyledTitle>Wybierz kategorie słówek:</StyledTitle>
       <Container>
         <StyledButton onClick={() => dispatch(toggleAllChecked())}>
           {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}
@@ -63,4 +62,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default TestCategories;

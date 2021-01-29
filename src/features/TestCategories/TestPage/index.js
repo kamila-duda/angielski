@@ -12,7 +12,7 @@ import {
   downProgress,
   upProgress,
   selectEndTest,
-} from "../categoriesSlice";
+} from "../../testSlice";
 import {
   StyledFontAwesomeIcon,
   StyledTitle,
@@ -24,13 +24,13 @@ import {
 } from "./styled";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";
-import wrong from "./../files/sounds/tryagain.mp3";
-import good from "./../files/sounds/goodanswer.ogg";
-import ErrorPage from "../../common/ErrorPage";
-import { toCategories } from "../../routes";
-import Tile from "../../common/Tile";
-import Container from "../../common/Container";
-import { soundOn } from "../soundOn";
+import wrong from "./../../files/sounds/tryagain.mp3";
+import good from "./../../files/sounds/goodanswer.ogg";
+import ErrorPage from "../../../common/ErrorPage";
+import { toCategories } from "../../../routes";
+import Tile from "../../../common/Tile";
+import Container from "../../../common/Container";
+import { soundOn } from "../../soundOn";
 
 const TestPage = () => {
   const dispatch = useDispatch();

@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledParagraph = styled.p`
-  padding: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-`;
 export const StyledButton = styled.button`
   cursor: pointer;
   width: 250px;
@@ -33,20 +27,15 @@ export const StyledButton = styled.button`
     color: ${({ theme }) => theme.color.lighter};
     cursor: not-allowed;
   }
+  @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {
+    font-size: 15px;
+  }
 `;
 export const StyledTitle = styled.h2`
   position: relative;
   text-align: center;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: -5px;
-    transform: scaleX(0);
-    transition: transform 1s ease-in-out;
-    background-color: #fff;
+  @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {
+    font-size: 16px;
   }
 `;
 export const StyledLink = styled(Link)`

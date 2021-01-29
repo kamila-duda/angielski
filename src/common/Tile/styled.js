@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { StyledTitle } from "../../features/Categories/styled";
+import { StyledTitle } from "../../features/TestCategories/styled";
 
 export const StyledTile = styled.div`
   position: relative;

@@ -24,6 +24,9 @@ text-decoration: none;
 position: relative;
 text-align: center;
 cursor: pointer;
+margin: 8px;
+border-radius: 15px;
+box-shadow: 0px 0px 5px 0px #000;
 &::after{
     content: "📢";
     position: absolute;
@@ -36,7 +39,7 @@ export const StyledButton = styled.button`
 cursor: pointer;
 width: 250px;
 padding: 20px;
-margin: 15px;
+margin: 25px 0 15px;
 text-transform: uppercase;
 font-size: 18px;
 color: ${({theme})=>theme.color.middle};

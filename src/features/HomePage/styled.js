@@ -13,7 +13,9 @@ export const StyledTitle = styled.h2`
   font-weight: bold;
   font-size: 24px;
   margin: 0;
+  width: 80%;
   display: flex;
+  text-align: center;
   @media (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 18px;
   }
@@ -29,6 +31,10 @@ position: absolute;
 z-index: -1;
 `;
 export const StyledText = styled.p`
-text-align: center;
+text-align: justify;
+line-height: 1.5;
 width: 80%;
+@media (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    font-size: 14px;
+  }
 `;

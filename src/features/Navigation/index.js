@@ -15,8 +15,8 @@ const Navigation = () => {
   return (
     <StyledNavbar>
       <StyledLink to={toHomePage()}>
+      <StyledFontAwesomeIcon icon={faChild} />
         <StyledTitle>
-          <StyledFontAwesomeIcon icon={faChild} />
           English for Kids
         </StyledTitle>
       </StyledLink>

@@ -1,17 +1,13 @@
 import React from "react";
-import Container from "../Container";
-import { StyledContainer, StyledText, StyledLink } from "./styled"
+import { faChild } from "@fortawesome/free-solid-svg-icons";
+import { StyledContainer, StyledText } from "./styled"
 
 const LoadingPage = () => {
     
     return (
-        <Container>
-            <StyledContainer>
-                <StyledText>
-                    Dobra odpowiedź! Losuję kolejne słowo...
-                </StyledText>
-            </StyledContainer>
-        </Container>
+        <>
+            <StyledFontAwesomeIcon icon={faChild} />
+        </>
     )
 
 };

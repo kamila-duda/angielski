@@ -7,6 +7,7 @@ export const theme = {
      lighter: "#FFFFFF",
     },
     breakpoint: {
+        extraSmall: "360px",
         xs: "420px",
         s: "991px",
         m: '1300px',

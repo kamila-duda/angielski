@@ -7,6 +7,7 @@ export const StyledNavbar = styled.nav`
   height: 60px;
   background-color: ${({ theme }) => theme.color.middle};
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 5px 10px;
@@ -18,11 +19,13 @@ export const StyledLink = styled(Link)`
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 color: ${({theme})=>theme.color.lighter};
 margin: 0 8px;
+font-size: 24px;
 `;
 export const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.color.lighter};
   font-weight: 500;
   font-size: 24px;
+  display: inline;
   letter-spacing: -1.5px;
   margin: 0;
   @media (max-width: ${({ theme }) => theme.breakpoint.s}) {
@@ -30,6 +33,9 @@ export const StyledTitle = styled.h1`
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {
     font-size: 15px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.extraSmall}) {
+    display: none;
   }
 `;
 export const NavigationList = styled.ul`
