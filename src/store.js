@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import categoriesReducer from "./features/categoriesSlice";
+import testReducer from "./features/testSlice";
+import wordsReducer from "./features/wordsSlice";
 import rootSaga from "./rootSaga"
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
     reducer: {
-      categories: categoriesReducer,
+      categories: testReducer,
+      words: wordsReducer,
     },
     middleware: [sagaMiddleware],
 });

@@ -1,16 +1,15 @@
 import React from "react";
-import { NavigationList, NavigationListItem, StyledFontAwesomeIcon, StyledNavbar, StyledTitle, StyledImage ,StyledNavLink } from "./styled";
+import { StyledContainer, StyledFontAwesomeIcon, StyledTitle, StyledText } from "./styled";
 import { faChild } from "@fortawesome/free-solid-svg-icons";
-import Container from "../../common/Container";
-import baloon from "../../assets/baloon.jpg";
 
 const HomePage = () => {
   return (
-    <Container>
+    <StyledContainer>
       <StyledTitle>Witaj na stronie poświęconej słownictwu z języka angielskiego dla klasy I</StyledTitle>
       <StyledFontAwesomeIcon icon={faChild} />
-      <p>bla</p>
-    </Container>
+      <StyledText>Do wyboru jest powtórka ze słówek lub test, gdzie należy 10 razy odpowiedzieć poprawnie (za każdą złą odpowiedź jest odejmowany punkt 😏 )</StyledText>
+      <StyledText>Kolejne słówka będą dodawane w odpowiednim czasie.</StyledText>
+    </StyledContainer>
   );
 };
 
