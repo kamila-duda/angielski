@@ -9,8 +9,8 @@ import {
 } from "./sessionStorageData";
 import { shuffleArray } from "./shuffleFunction";
 
-export const categoriesSlice = createSlice({
-  name: "categories",
+export const testSlice = createSlice({
+  name: "test",
   initialState: {
     categories: words,
     selectedCategories: [],
@@ -149,7 +149,7 @@ export const {
   resetTest,
   upProgress,
   downProgress,
-} = categoriesSlice.actions;
+} = testSlice.actions;
 
 const selectCategories = (state) => state.categories;
 export const selectStateCategories = (state) =>
@@ -170,4 +170,4 @@ export const selectIsError = (state) => selectCategories(state).isError;
 export const selectProgress = (state) => selectCategories(state).progressBar;
 export const selectEndTest = (state) => selectCategories(state).endTest;
 
-export default categoriesSlice.reducer;
+export default testSlice.reducer;

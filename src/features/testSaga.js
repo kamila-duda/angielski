@@ -1,12 +1,12 @@
 import { put, takeEvery, delay, call } from "redux-saga/effects";
-import store from "./../store";
+import store from "../store";
 import {
   setTestWord,
   startTest,
   drawIndex,
   setError,
   resetTest,
-} from "./categoriesSlice";
+} from "./testSlice";
 import {
   sessionStorageKeyImg,
   sessionStorageKeyQuestion,
@@ -22,14 +22,9 @@ function* setNewWordHandler() {
     const words = store.getState().categories.testCategories.words;
     let index;
     const testWords = store.getState().categories.testWords;
-    do{
+    do {
       index = Math.floor(Math.random() * words.length);
-    }while(testWords.indexOf(index) > -1);
-    //   index = Math.floor(Math.random() * words.length);
-    // }
-    // if (testWords.indexOf(index) > -1) {
-    //   index = Math.floor(Math.random() * words.length);
-    // }
+    } while (testWords.indexOf(index) > -1);
     yield put(setTestWord(index));
   } catch (error) {
     yield put(setError());
@@ -57,7 +52,7 @@ function* unsetSessionStorageDataHandler() {
   yield call(unsetSessionStorageData, sessionStorageKeyImg);
 }
 
-export function* categoriesSaga() {
+export function* testSaga() {
   yield takeEvery(startTest.type, setSessionStorageDataHandler);
   yield takeEvery(startTest.type, setNewWordHandler);
   yield takeEvery(drawIndex.type, setNewWordHandler);
