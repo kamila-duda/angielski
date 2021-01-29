@@ -9,7 +9,7 @@ import {
   StyledLink
 } from "./styled";
 import { faChild } from "@fortawesome/free-solid-svg-icons";
-import { toCategories, toHomePage } from "../../routes";
+import { toCategories, toHomePage, toRepetition } from "../../routes";
 
 const Navigation = () => {
   return (
@@ -21,8 +21,11 @@ const Navigation = () => {
         </StyledTitle>
       </StyledLink>
       <NavigationList>
+      <NavigationListItem>
+          <StyledNavLink to={toHomePage()}>Home</StyledNavLink>
+        </NavigationListItem>
         <NavigationListItem>
-          <StyledNavLink to={"/"}>Repetition</StyledNavLink>
+          <StyledNavLink to={toRepetition()}>Words</StyledNavLink>
         </NavigationListItem>
         <NavigationListItem>
           <StyledNavLink to={toCategories()}>Test</StyledNavLink>

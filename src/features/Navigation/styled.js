@@ -4,10 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const StyledNavbar = styled.nav`
   width: 100%;
-  position: fixed;
-  left: 0%;
-  right: 0%;
-  top: 0%;
   height: 60px;
   background-color: ${({ theme }) => theme.color.middle};
   display: flex;
