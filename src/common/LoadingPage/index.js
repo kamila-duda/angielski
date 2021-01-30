@@ -1,6 +1,6 @@
 import React from "react";
 import { faChild } from "@fortawesome/free-solid-svg-icons";
-import { StyledContainer, StyledText } from "./styled"
+import { StyledFontAwesomeIcon } from "./styled";
 
 const LoadingPage = () => {
     

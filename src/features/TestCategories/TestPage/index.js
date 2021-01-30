@@ -31,6 +31,7 @@ import { toCategories } from "../../../routes";
 import Tile from "../../../common/Tile";
 import Container from "../../../common/Container";
 import { soundOn } from "../../soundOn";
+import LoadingPage from "../../../common/LoadingPage";
 
 const TestPage = () => {
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ const TestPage = () => {
       <StyledProgressBar progress={progress}></StyledProgressBar>
       {isLoading ? (
         <StyledContainer>
-          <p>Losuję ...</p>
+          <LoadingPage />
         </StyledContainer>
       ) : 
         (endTest ? ( 

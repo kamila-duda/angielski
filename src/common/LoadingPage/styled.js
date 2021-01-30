@@ -1,16 +1,12 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import baloon from "../../assets/baloon.jpg";
 
-export const StyledContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-background-image: url(${baloon});
-background-size: contain;
-width: 1000px;
-height: 400px;
-`;
-export const StyledText = styled.p`
-font-size: 22px;
+export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+color: ${({theme})=>theme.color.middle};
+margin: 8px;
+font-size: 44px;
+animation: "rotation" 2s infinite;
+@keyframes rotation {
+    100% {transform: rotate(360deg)}
+}
 `;
