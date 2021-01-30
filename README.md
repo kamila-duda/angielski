@@ -1,8 +1,17 @@
 # English for Kids
 
-Check live demo: [Live demo](https://kamila-duda.github.io/angielski/)
+Check: [Live demo](https://kamila-duda.github.io/angielski/)
 
-This project was created for my daughter to help her to learn words.
+This project was created for my daughter to help her to learn words. It contains test page (with progress bar - it's grow until 10 good answers, but shrink when bad answer) and page with categories of words where you can check the word and learn them.
+
+How test works:
+![gif of how application works](https://github.com/kamila-duda/angielski/blob/main/src/assets/ang.gif?raw=true)
+
+Repetition words page:
+![repetition words page](https://github.com/kamila-duda/angielski/blob/main/src/assets/repetitionScreen.PNG?raw=true)
+
+Home page:
+![home page](https://github.com/kamila-duda/angielski/blob/main/src/assets/homeScreen.PNG?raw=true)
 
 Project is not finished. I plan to develop it.
 
