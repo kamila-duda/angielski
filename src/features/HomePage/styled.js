@@ -1,13 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
-export const StyledContainer = styled.section`
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
 export const StyledTitle = styled.h2`
   color: ${({ theme }) => theme.color.darknest};
   font-weight: bold;

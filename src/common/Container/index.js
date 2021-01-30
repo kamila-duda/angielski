@@ -1,10 +1,10 @@
 import React from "react";
 import { StyledContainer } from "./styled";
 
-const Container = (props) => {
+const Container = ({children, wordsPage, column}) => {
   return (
-    <StyledContainer >
-      {props.children}
+    <StyledContainer wordsPage={wordsPage}>
+      {children}
     </StyledContainer>
   );
 };

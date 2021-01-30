@@ -16,9 +16,7 @@ import {
 import {
   StyledFontAwesomeIcon,
   StyledTitle,
-  StyledButton,
   StyledLink,
-  StyledContainer,
   StyledAnchor,
   StyledProgressBar,
 } from "./styled";
@@ -32,6 +30,7 @@ import Tile from "../../../common/Tile";
 import Container from "../../../common/Container";
 import { soundOn } from "../../soundOn";
 import LoadingPage from "../../../common/LoadingPage";
+import Button from "../../../common/Button";
 
 const TestPage = () => {
   const dispatch = useDispatch();
@@ -73,16 +72,16 @@ const TestPage = () => {
       </StyledTitle>)}
       <StyledProgressBar progress={progress}></StyledProgressBar>
       {isLoading ? (
-        <StyledContainer>
+        <Container wordsPage={true}>
           <LoadingPage />
-        </StyledContainer>
+        </Container>
       ) : 
         (endTest ? ( 
-          <StyledContainer>
+          <Container wordsPage={true}>
           <StyledFontAwesomeIcon icon={faTrophy} />
           <p>Brawo! Test ukończony.</p>
-        </StyledContainer>) : (
-        <StyledContainer>
+        </Container>) : (
+        <Container wordsPage={true}>
           {words.map((word) => (
             <StyledAnchor
               key={word.title}
@@ -93,13 +92,11 @@ const TestPage = () => {
               <Tile image={word.image} testedTile={true} />
             </StyledAnchor>
           ))}
-        </StyledContainer>))
+        </Container>))
       }
       <Container>
         <StyledLink to={toCategories()} replace>
-          <StyledButton onClick={() => dispatch(resetTest())}>
-            Koniec
-          </StyledButton>
+          <Button onClick={() => dispatch(resetTest())} text={`Koniec`}/>
         </StyledLink>
       </Container>
     </>

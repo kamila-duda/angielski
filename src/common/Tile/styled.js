@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { StyledTitle } from "../../features/TestCategories/styled";
+import { StyledTitle as WordsTitle } from "../../features/WordsPage/styled";
 
 export const StyledTile = styled.div`
   position: relative;
@@ -39,14 +40,6 @@ export const StyledTile = styled.div`
         background-size: cover;
       `}
   }
-  :hover {
-    background-color: rgba(0, 0, 0, 60%);
-    ${StyledTitle} {
-      &::after {
-        transform: scaleX(1);
-      }
-    }
-  }
   ${({ testedTile }) =>
     testedTile &&
     css`
@@ -56,13 +49,26 @@ export const StyledTile = styled.div`
         background-color: rgba(0, 0, 0, 0%);
       }
     `}
+    :hover {
+    background-color: rgba(0, 0, 0, 60%);
+    ${StyledTitle} {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+    ${WordsTitle} {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
   ${({ repetitionTile }) =>
     repetitionTile &&
     css`
-      background-color: unset;
+    background-color: unset;
       &:hover {
-        border: unset;
-        background-color: rgba(0, 0, 0, 0%);
+        border: 3px solid transparent;
+        background-color: unset;
       }
     `}
     @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {

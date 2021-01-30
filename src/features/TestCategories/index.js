@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "../../common/Button";
 import Container from "../../common/Container";
 import Tile from "../../common/Tile";
 import { toTest } from "../../routes";
@@ -13,8 +14,6 @@ import {
 } from "../testSlice";
 import {
   StyledTitle,
-  StyledButton,
-  StyledParagraph,
   StyledLink,
   StyledAnchor,
 } from "./styled";
@@ -29,16 +28,15 @@ const TestCategories = () => {
     <>
       <StyledTitle>Wybierz 1 lub więcej kategorii i rozpocznij test:</StyledTitle>
       <Container>
-        <StyledButton onClick={() => dispatch(toggleAllChecked())}>
-          {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}
-        </StyledButton>
+        <Button onClick={() => dispatch(toggleAllChecked())} 
+          text={`${allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}`}
+        />
         <StyledLink to={toTest()}>
-          <StyledButton
+          <Button
             disabled={!startFlag}
+            text={`Start`}
             onClick={() => dispatch(startTest())}
-          >
-            Start
-          </StyledButton>
+          />
         </StyledLink>
       </Container>
       <Container>

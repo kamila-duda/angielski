@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledContainer = styled.section`
   margin: auto;
@@ -6,4 +6,14 @@ export const StyledContainer = styled.section`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  ${({ wordsPage }) =>
+    wordsPage &&
+    css`
+      min-height: 300px;
+    `}
+    ${({ column }) =>
+    column &&
+    css`
+     flex-direction: column;
+    `}
 `;
