@@ -1,4 +1,3 @@
-import { faHourglassEnd } from "@fortawesome/free-solid-svg-icons";
 import { createSlice } from "@reduxjs/toolkit";
 import { words } from "./files/words";
 import { getSessionStorageData, sessionStorageKeyRepeted } from "./sessionStorageData";
