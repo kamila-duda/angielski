@@ -24,6 +24,7 @@ export const StyledTitle = styled.h2`
   position: relative;
   cursor: pointer;
   text-align: center;
+  color: ${({theme})=>theme.color.darknest};
 `;
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${({ theme }) => theme.color.middle};

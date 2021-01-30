@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export const StyledTitle = styled.h2`
   font-size: 20px;
+  color: ${({theme})=>theme.color.darknest};
 `;
 export const StyledPolishWord = styled.h3`
   font-size: 15px;

@@ -14,5 +14,6 @@ body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
+  color: ${({theme})=>theme.color.middle};
 }
 `;

@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 export const StyledTitle = styled.h2`
-  color: ${({ theme }) => theme.color.middle};
   font-weight: bold;
   text-transform: uppercase;
   font-size: 34px;
@@ -27,6 +26,7 @@ export const StyledText = styled.p`
 text-align: justify;
 line-height: 1.5;
 width: 60%;
+color: ${({ theme }) => theme.color.darknest};
 @media (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 14px;
   }
