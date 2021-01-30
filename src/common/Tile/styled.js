@@ -21,7 +21,7 @@ export const StyledTile = styled.div`
     css`
       border: 3px solid ${({ theme }) => theme.color.middle};
     `}
-&::after {
+  &::after {
     content: "";
     position: absolute;
     left: 0;
@@ -50,14 +50,22 @@ export const StyledTile = styled.div`
   ${({ testedTile }) =>
     testedTile &&
     css`
-    background-color: unset;
-    &:hover{
+      background-color: unset;
+      &:hover {
         border: 3px solid ${({ theme }) => theme.color.middle};
         background-color: rgba(0, 0, 0, 0%);
-    }
-      
+      }
     `}
-    @media (max-width: ${({theme})=>theme.breakpoint.xs}) {
+  ${({ repetitionTile }) =>
+    repetitionTile &&
+    css`
+      background-color: unset;
+      &:hover {
+        border: unset;
+        background-color: rgba(0, 0, 0, 0%);
+      }
+    `}
+    @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {
     width: 120px;
     height: 100px;
     font-size: 13px;

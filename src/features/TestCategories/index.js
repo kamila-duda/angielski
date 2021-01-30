@@ -27,7 +27,7 @@ const TestCategories = () => {
 
   return (
     <>
-      <StyledTitle>Wybierz kategorie słówek:</StyledTitle>
+      <StyledTitle>Wybierz 1 lub więcej kategorii i rozpocznij test:</StyledTitle>
       <Container>
         <StyledButton onClick={() => dispatch(toggleAllChecked())}>
           {allChecked ? "Odznacz wszystkie" : "Zaznacz wszystkie"}

@@ -18,7 +18,7 @@ const WordsPage = () => {
 
   return (
     <>
-      <StyledTitle>Wybierz kategorię słówek:</StyledTitle>
+      <StyledTitle>Wybierz kategorię słówek do nauki:</StyledTitle>
       <Container>
         {words.map((category) => (
           <StyledLink

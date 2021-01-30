@@ -33,7 +33,7 @@ const WordsSelectedPage = () => {
               {word.title}
             </StyledTitle>
             <StyledPolishWord>{word.polish}</StyledPolishWord>
-            <Tile image={word.image} testedTile={false} />
+            <Tile image={word.image} testedTile={false} repetitionTile={true}/>
           </StyledAnchor>
         ))}
       </StyledContainer>
