@@ -40,16 +40,7 @@ export const StyledTile = styled.div`
         background-size: cover;
       `}
   }
-  ${({ testedTile }) =>
-    testedTile &&
-    css`
-      background-color: unset;
-      &:hover {
-        border: 3px solid ${({ theme }) => theme.color.middle};
-        background-color: rgba(0, 0, 0, 0%);
-      }
-    `}
-    :hover {
+  &:hover {
     background-color: rgba(0, 0, 0, 60%);
     ${StyledTitle} {
       &::after {
@@ -65,9 +56,18 @@ export const StyledTile = styled.div`
   ${({ repetitionTile }) =>
     repetitionTile &&
     css`
-    background-color: unset;
+      background-color: unset;
       &:hover {
         border: 3px solid transparent;
+        background-color: unset;
+      }
+    `}
+  ${({ testedTile }) =>
+    testedTile &&
+    css`
+      background-color: unset;
+      &:hover {
+        border: 3px solid ${({ theme }) => theme.color.middle};
         background-color: unset;
       }
     `}
