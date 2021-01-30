@@ -10,7 +10,7 @@ export const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  color: ${({ theme }) => theme.color.dark};
+  color: ${({ theme }) => theme.color.lighter};
 `;
 
 export const StyledLink = styled.a`
