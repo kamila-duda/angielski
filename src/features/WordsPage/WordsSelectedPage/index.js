@@ -41,7 +41,7 @@ const WordsSelectedPage = () => {
       </Container>
       <Container>
         <StyledLink to={toRepetition()} replace>
-          <Button onClick={() => dispatch(resetState())} text={`Koniec`} repetitionEnd={true}/>
+          <Button onClick={() => dispatch(resetState())} text={`Powrót`} repetitionEnd={true}/>
         </StyledLink>
       </Container>
     </>
