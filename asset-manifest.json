@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/angielski/static/js/main.6ae671f1.chunk.js",
-    "main.js.map": "/angielski/static/js/main.6ae671f1.chunk.js.map",
+    "main.js": "/angielski/static/js/main.13c7f2f1.chunk.js",
+    "main.js.map": "/angielski/static/js/main.13c7f2f1.chunk.js.map",
     "runtime-main.js": "/angielski/static/js/runtime-main.c7a33f52.js",
     "runtime-main.js.map": "/angielski/static/js/runtime-main.c7a33f52.js.map",
     "static/js/2.dd981a7d.chunk.js": "/angielski/static/js/2.dd981a7d.chunk.js",
@@ -9,6 +9,7 @@
     "index.html": "/angielski/index.html",
     "static/js/2.dd981a7d.chunk.js.LICENSE.txt": "/angielski/static/js/2.dd981a7d.chunk.js.LICENSE.txt",
     "static/media/apple.3971bdf0.ogg": "/angielski/static/media/apple.3971bdf0.ogg",
+    "static/media/arms.b39c7df9.ogg": "/angielski/static/media/arms.b39c7df9.ogg",
     "static/media/bag.e68e6255.ogg": "/angielski/static/media/bag.e68e6255.ogg",
     "static/media/ball.8292826c.ogg": "/angielski/static/media/ball.8292826c.ogg",
     "static/media/banana.3971e4e7.ogg": "/angielski/static/media/banana.3971e4e7.ogg",
@@ -17,6 +18,7 @@
     "static/media/blue.edc0e811.ogg": "/angielski/static/media/blue.edc0e811.ogg",
     "static/media/blueberry.82cdfdb3.ogg": "/angielski/static/media/blueberry.82cdfdb3.ogg",
     "static/media/boat.aff5a9c9.ogg": "/angielski/static/media/boat.aff5a9c9.ogg",
+    "static/media/body.0fa83c8c.ogg": "/angielski/static/media/body.0fa83c8c.ogg",
     "static/media/book.a6aac04b.ogg": "/angielski/static/media/book.a6aac04b.ogg",
     "static/media/boy.fcf7ba75.ogg": "/angielski/static/media/boy.fcf7ba75.ogg",
     "static/media/brown.78ac9aed.ogg": "/angielski/static/media/brown.78ac9aed.ogg",
@@ -28,17 +30,29 @@
     "static/media/crayon.47ff472c.ogg": "/angielski/static/media/crayon.47ff472c.ogg",
     "static/media/desk.a98161cb.ogg": "/angielski/static/media/desk.a98161cb.ogg",
     "static/media/doll.0f80b0f1.ogg": "/angielski/static/media/doll.0f80b0f1.ogg",
+    "static/media/ears.4cbaf1f2.ogg": "/angielski/static/media/ears.4cbaf1f2.ogg",
     "static/media/eight.d801653e.ogg": "/angielski/static/media/eight.d801653e.ogg",
+    "static/media/eyes.23237e91.ogg": "/angielski/static/media/eyes.23237e91.ogg",
+    "static/media/face.2c7238dc.ogg": "/angielski/static/media/face.2c7238dc.ogg",
+    "static/media/feet.f7459a9e.ogg": "/angielski/static/media/feet.f7459a9e.ogg",
+    "static/media/fingers.88459b61.ogg": "/angielski/static/media/fingers.88459b61.ogg",
     "static/media/five.3b8e2777.ogg": "/angielski/static/media/five.3b8e2777.ogg",
     "static/media/four.26faca48.ogg": "/angielski/static/media/four.26faca48.ogg",
     "static/media/girl.a0217da8.ogg": "/angielski/static/media/girl.a0217da8.ogg",
     "static/media/goodanswer.18e9cd75.ogg": "/angielski/static/media/goodanswer.18e9cd75.ogg",
     "static/media/green.47328b8c.ogg": "/angielski/static/media/green.47328b8c.ogg",
     "static/media/grey.9e38ddd4.ogg": "/angielski/static/media/grey.9e38ddd4.ogg",
+    "static/media/hair.d5704a77.ogg": "/angielski/static/media/hair.d5704a77.ogg",
+    "static/media/hands.eedcc90a.ogg": "/angielski/static/media/hands.eedcc90a.ogg",
+    "static/media/head.9539ed31.ogg": "/angielski/static/media/head.9539ed31.ogg",
+    "static/media/heart.9ebf6c86.ogg": "/angielski/static/media/heart.9ebf6c86.ogg",
     "static/media/helicopter.f6380b8e.ogg": "/angielski/static/media/helicopter.f6380b8e.ogg",
     "static/media/kite.bdbcb8c1.ogg": "/angielski/static/media/kite.bdbcb8c1.ogg",
+    "static/media/legs.657711a8.ogg": "/angielski/static/media/legs.657711a8.ogg",
     "static/media/lemon.e3b7976e.ogg": "/angielski/static/media/lemon.e3b7976e.ogg",
+    "static/media/mouth.7cb74b32.ogg": "/angielski/static/media/mouth.7cb74b32.ogg",
     "static/media/nine.8036728e.ogg": "/angielski/static/media/nine.8036728e.ogg",
+    "static/media/nose.0ea8522c.ogg": "/angielski/static/media/nose.0ea8522c.ogg",
     "static/media/notebook.b65c96c5.ogg": "/angielski/static/media/notebook.b65c96c5.ogg",
     "static/media/one.da102b5e.ogg": "/angielski/static/media/one.da102b5e.ogg",
     "static/media/orange.2e6f80e2.ogg": "/angielski/static/media/orange.2e6f80e2.ogg",
@@ -75,6 +89,6 @@
   "entrypoints": [
     "static/js/runtime-main.c7a33f52.js",
     "static/js/2.dd981a7d.chunk.js",
-    "static/js/main.6ae671f1.chunk.js"
+    "static/js/main.13c7f2f1.chunk.js"
   ]
 }
