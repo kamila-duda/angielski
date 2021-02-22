@@ -4,6 +4,7 @@ import { colors } from "./categories/colors";
 import { toys } from "./categories/toys";
 import { beach } from "./categories/beach";
 import { numbers } from "./categories/numbers";
+import { body } from "./categories/body";
 
 export const words = [
   {
@@ -53,5 +54,13 @@ export const words = [
       "https://images.unsplash.com/photo-1502570149819-b2260483d302?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80",
     border: false,
     words: numbers,
+  },
+  {
+    title: "ciało",
+    id: 7,
+    image:
+      "https://www.pngjoy.com/pngl/391/7212053_png-body-parts-of-the-body-nursery-hd.png",
+    border: false,
+    words: body,
   },
 ];
