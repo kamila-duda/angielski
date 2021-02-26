@@ -5,6 +5,7 @@ import { toys } from "./categories/toys";
 import { beach } from "./categories/beach";
 import { numbers } from "./categories/numbers";
 import { body } from "./categories/body";
+import { animals } from "./categories/animals";
 
 export const words = [
   {
@@ -62,5 +63,13 @@ export const words = [
       "https://www.pngjoy.com/pngl/391/7212053_png-body-parts-of-the-body-nursery-hd.png",
     border: false,
     words: body,
+  },
+  {
+    title: "zwierzęta",
+    id: 8,
+    image:
+      "https://images.unsplash.com/photo-1496963729609-7d408fa580b5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8d2lsZCUyMGFuaW1hbHN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+    border: false,
+    words: animals,
   },
 ];
