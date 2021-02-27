@@ -6,6 +6,7 @@ import { beach } from "./categories/beach";
 import { numbers } from "./categories/numbers";
 import { body } from "./categories/body";
 import { animals } from "./categories/animals";
+import { family } from "./categories/family";
 
 export const words = [
   {
@@ -71,5 +72,13 @@ export const words = [
       "https://images.unsplash.com/photo-1496963729609-7d408fa580b5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8d2lsZCUyMGFuaW1hbHN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
     border: false,
     words: animals,
+  },
+  {
+    title: "domownicy",
+    id: 9,
+    image:
+      "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGZhbWlseXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+    border: false,
+    words: family,
   },
 ];
