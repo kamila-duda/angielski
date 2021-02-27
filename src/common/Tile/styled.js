@@ -5,7 +5,7 @@ import { StyledTitle as WordsTitle } from "../../features/WordsPage/styled";
 export const StyledTile = styled.div`
   position: relative;
   cursor: pointer;
-  width: 180px;
+  width: 260px;
   height: 150px;
   margin: 10px;
   display: flex;
@@ -57,6 +57,8 @@ export const StyledTile = styled.div`
     repetitionTile &&
     css`
       background-color: unset;
+      width: 180px;
+      height: 100px;
       &:hover {
         border: 3px solid transparent;
         background-color: unset;
@@ -66,6 +68,8 @@ export const StyledTile = styled.div`
     testedTile &&
     css`
       background-color: unset;
+      width: 180px;
+      height: 100px;
       &:hover {
         border: 3px solid ${({ theme }) => theme.color.middle};
         background-color: unset;
