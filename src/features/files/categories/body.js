@@ -12,90 +12,103 @@ import mouth from "./../sounds/mouth.ogg";
 import nose from "./../sounds/nose.ogg";
 import hair from "./../sounds/hair.ogg";
 import heart from "./../sounds/heart.ogg";
+import armsImg from "./../images/arms.png";
+import bodyWordImg from "./../images/body.png";
+import earsImg from "./../images/ears.png";
+import eyesImg from "./../images/eyes.png";
+import faceImg from "./../images/face.png";
+import feetImg from "./../images/feet.png";
+import fingersImg from "./../images/fingers.png";
+import handsImg from "./../images/hands.png";
+import headImg from "./../images/head.png";
+import legsImg from "./../images/legs.png";
+import mouthImg from "./../images/mouth.png";
+import noseImg from "./../images/nose.png";
+
 
 export const body = [
     {
       title: "arms",
       polish: "ramiona",
       image:
-        "https://www.pngjoy.com/pngl/113/2338394_cartoon-arms-clipart-arms-png-download.png",
+        armsImg,
         sounds: arms,
     },
     {
       title: "body",
       polish: "ciało",
       image:
-        "https://www.pngjoy.com/pngl/476/19202480_body-outline-human-body-outline-with-muscles-transparent.png",
+        bodyWordImg,
         sounds: bodyWord,
     },
     {
       title: "ears",
       polish: "uszy",
       image:
-        "https://cdn.pixabay.com/photo/2017/06/04/20/07/ear-2372090_1280.jpg",
+        earsImg,
         sounds: ears,
     },
     {
       title: "eyes",
       polish: "oczy",
       image:
-        "https://cdn.pixabay.com/photo/2016/07/18/10/16/model-1525629_1280.jpg",
+        eyesImg,
         sounds: eyes,
     },
     {
       title: "face",
       polish: "twarz",
       image:
-        "https://cdn.pixabay.com/photo/2017/05/11/08/48/model-2303361_1280.jpg",
+        faceImg,
         sounds: face,
     },
     {
       title: "feet",
       polish: "stopy",
       image:
-        "https://www.pngjoy.com/pngl/115/13805305_baby-feet-baby-feet-transparent-png.png",
+        feetImg,
         sounds: feet,
     },
     {
       title: "fingers",
       polish: "palce",
       image:
-        "https://www.pngjoy.com/pngl/338/6322637_fingers-fingers-png-png-download.png",
+        fingersImg,
         sounds: fingers,
     },
     {
       title: "hands",
       polish: "ręce",
       image:
-        "https://www.pngjoy.com/pngl/980/21869612_fingers-fingers-png-background-png-download.png",
+        handsImg,
         sounds: hands,
     },
     {
       title: "head",
       polish: "głowa",
       image:
-        "https://images.unsplash.com/photo-1580916001969-64a10e968bc9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80",
+        headImg,
         sounds: head,
     },
     {
         title: "legs",
         polish: "nogi",
         image:
-          "https://cdn.pixabay.com/photo/2014/09/03/20/15/shoes-434918_1280.jpg",
+          legsImg,
           sounds: legs,
       },
       {
         title: "mouth",
         polish: "usta",
         image:
-          "https://cdn.pixabay.com/photo/2016/09/24/01/32/lips-1690875_1280.jpg",
+          mouthImg,
           sounds: mouth,
       },
       {
         title: "nose",
         polish: "nos",
         image:
-          "https://images.pexels.com/photos/160411/african-bush-squirrel-paraxerus-african-squirrel-child-s-face-160411.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          noseImg,
           sounds: nose,
       },
       {

@@ -58,7 +58,6 @@ export const StyledTile = styled.div`
     css`
       background-color: unset;
       width: 180px;
-      height: 150px;
       &:hover {
         border: 3px solid transparent;
         background-color: unset;
@@ -69,7 +68,6 @@ export const StyledTile = styled.div`
     css`
       background-color: unset;
       width: 180px;
-      height: 150px;
       &:hover {
         border: 3px solid ${({ theme }) => theme.color.middle};
         background-color: unset;
